@@ -1,7 +1,6 @@
 package JAVA.File_Handling;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.classfile.FieldTransform;
 
 /*
  INPUT STREAM AND OUTPUT STREAM
@@ -15,8 +14,14 @@ public class WriteFiles {
     1.character oriented stream
     2.convient for text files
     */
+
     String path;
     String CurrentData;
+
+    public WriteFiles(String path,String data) throws IOException {
+        this.path=path;
+        writeData(data,true);
+    }
 
     public void Writefile(String path,String data) throws IOException{
 
@@ -31,28 +36,26 @@ public class WriteFiles {
 
     }
     String data;
-    public String changeData(String data) throws IOException
+    public String updateData(String data) throws IOException
     {
         this.data=data;
         FileWriter fc=new FileWriter(path);
-        fc.write(data);
+        fc.append(data);
         fc.close();
         return "changed";
     }
 
-    String currentData;
-    public String writeData(String data) throws IOException{
+    public String currentData;
+    public String writeData(String data,boolean append) throws IOException{
         String oldData=this.currentData;
         this.currentData=data;
-        FileWriter fd=new FileWriter(path);
-        fd.write(data);
-        fd.append("you are great");
-        fd.close();
-        return "Write data";
 
+        FileWriter fd=new FileWriter(path,append);
+            fd.write(data);
+            fd.close();
 
+        return oldData;
     }
-
 
 
 }

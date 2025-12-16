@@ -1,4 +1,5 @@
 package JAVA.File_Handling;
+import java.util.Scanner;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +25,8 @@ public class FilesMethods {
         */
 
 
+
+
         File f= new File("C:\\Users\\Admin\\IdeaProjects\\Exception-Handling\\src\\JAVA\\File_Handling\\myfile.txt");
         System.out.println("File Object Created");
 
@@ -46,20 +49,7 @@ public class FilesMethods {
         System.out.println("CAN WRITE:"+f.canWrite());
         System.out.println(":"+f.exists());
 
-        //WriteFile Object
 
-        WriteFiles w=new WriteFiles();
-        w.Writefile("C:\\Users\\Admin\\IdeaProjects\\Exception-Handling\\src\\JAVA\\" +
-                        "File_Handling\\myfile.txt", "sejalmukeshnandanwar");
-
-        //CHANGE THE CONTENT OF THE FILE
-        String output=w.changeData("SEJAL_MUKESH_NANDANWAR");
-        System.out.println(output);
-
-
-        //WRITE DATA
-        String result=w.writeData("Happy Happy Happy");
-        System.out.println(result);
 
 
     }
