@@ -1,5 +1,6 @@
 package JAVA.File_Handling;
 import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.IOException;
 
 /*
@@ -48,7 +49,7 @@ public class WriteFiles {
     public String currentData;
     public String writeData(String data,boolean append) throws IOException{
         String oldData=this.currentData;
-        this.currentData=data;
+        this.currentData=append ? this.currentData+data : data ;
 
         FileWriter fd=new FileWriter(path,append);
             fd.write(data);
@@ -59,3 +60,12 @@ public class WriteFiles {
 
 
 }
+//Buffer Writer
+/*
+BufferWriter bw=new BufferWriter(new FileWriter(path,append);
+            bw.write(data);
+            bw.newline():
+            bw.close();
+*/
+
+//HW-Length of last word -16/12/25
