@@ -20,10 +20,13 @@ public class ClassTask {
         ArrayList<Integer> numbers =new ArrayList<Integer>();
         //Add elements
         numbers.add(5);
-        numbers.add(51);
+        numbers.add(55);
         numbers.add(32);
         numbers.add(49);
         numbers.add(34);
+        numbers.add(4);
+        numbers.add(5);
+        numbers.add(5);
 
         numbers.add(5,11);
         numbers.add(6,6);
@@ -108,10 +111,36 @@ public class ClassTask {
         float avg=sum/Tcount;
         System.out.println("Average of Arraylist Elements is: "+avg);
 
+        //find largest and smallest element
+        Collections.sort(numbers);
+        System.out.println("Min Value: "+numbers.getFirst());
+        System.out.println("Max Value: "+numbers.getLast());
+
+        //find the frequency of each element
+        ArrayList<Integer> count= new ArrayList<>();
+
+            for (int i=0;i<=100;i++) count.add(0);
+            for(Integer value:numbers){
+                int currentValue= count.get(value)+1;
+                count.set(value,currentValue);
+
+            }
+            System.out.println(count.get(5));
+
+        //hashmap solution
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        for(Integer value:numbers){
+            hm.put(value, hm.getOrDefault(value,0)+1);
+        }
+        System.out.println(hm);
+
+        }
+
     }
 
 
-}
+
+
 
 
 
